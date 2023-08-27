@@ -1,280 +1,552 @@
 'use client'
-import React, { useEffect, useRef } from "react";
-import { PivotControls, useGLTF, useScroll } from "@react-three/drei";
-import { GLTFResult } from "./typing";
-import { useControls } from "leva";
+import * as THREE from "three";
+import React, { useLayoutEffect, useRef } from "react";
+import { useGLTF } from "@react-three/drei";
+import { GLTF } from "three-stdlib";
 import { useFrame, useThree } from "@react-three/fiber";
-import gsap from "gsap";
+import { GLTFResult } from "./typing";
+
 
 
 export function Model(props: JSX.IntrinsicElements["group"]) {
-  const group = useRef<any>()
-
-  const { camera, scene } = useThree()
+  const {scene, camera} =useThree()
+  const { nodes, materials } = useGLTF("models/bicycle.glb") as GLTFResult;
+  console.log(camera.position)
   
-  const { nodes, materials } = useGLTF("models/cartoon_car.glb") as GLTFResult;
-
-   console.log(camera.position);
-   
-   
   return (
     <group {...props} dispose={null}>
-      <group>
+      <group position={[0,1,0]}>
         <group rotation={[-Math.PI / 2, 0, 0]}>
-          <group rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
-            <group>
-              <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+          <group>
+            <group position={[0, 3.00, 0]}>
+              <group position={[0, -3.00, 0]} >
                 <mesh
                   castShadow
                   receiveShadow
-                  geometry={nodes.body_car_body_0.geometry}
-                  material={materials.car_body}
+                  geometry={nodes.Object_4.geometry}
+                  material={materials.Glanzend_staalc}
+                />
+                <mesh
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Object_5.geometry}
+                  material={materials.Glanzend_staalc}
                 />
               </group>
-              <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+            </group>
+            <group position={[-2.472, 0.662, 31.264]}>
+              <group position={[2.472, -0.662, -31.264]}>
                 <mesh
                   castShadow
                   receiveShadow
-                  geometry={nodes.hood_car_body_0.geometry}
-                  material={materials.car_body}
+                  geometry={nodes.Object_8.geometry}
+                  material={materials.Glanzend_staalc}
+                />
+                <mesh
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Object_9.geometry}
+                  material={materials.Glanzend_staalc}
+                />
+                <mesh
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Object_10.geometry}
+                  material={materials.Glanzend_staalc}
                 />
               </group>
-              <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+            </group>
+            <group position={[-2.472, 0.662, 31.264]}>
+              <group position={[2.472, -0.662, -31.264]}>
                 <mesh
                   castShadow
                   receiveShadow
-                  geometry={nodes.front_bumper_carbon_fiber_0.geometry}
-                  material={materials.carbon_fiber}
+                  geometry={nodes.Object_13.geometry}
+                  material={materials.Glanzend_staalc}
+                />
+                <mesh
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Object_14.geometry}
+                  material={materials.Glanzend_staalc}
                 />
               </group>
-              <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+            </group>
+            <group position={[-2.472, 0.662, 31.264]}>
+              <group position={[2.472, -0.662, -31.264]}>
                 <mesh
                   castShadow
                   receiveShadow
-                  geometry={nodes.front_fenders_carbon_fiber_0.geometry}
-                  material={materials.carbon_fiber}
+                  geometry={nodes.Object_17.geometry}
+                  material={materials.Glanzend_staalc}
+                />
+                <mesh
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Object_18.geometry}
+                  material={materials.Glanzend_staalc}
                 />
               </group>
-              <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+            </group>
+            <group position={[-2.472, 0.662, 31.264]}>
+              <group position={[2.472, -0.662, -31.264]}>
                 <mesh
                   castShadow
                   receiveShadow
-                  geometry={nodes.Plane006_car_body_0.geometry}
-                  material={materials.car_body}
+                  geometry={nodes.Object_21.geometry}
+                  material={materials.Glanzend_staalc}
                 />
               </group>
-              <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+            </group>
+            <group position={[-2.472, 0.662, 31.264]}>
+              <group position={[2.472, -0.662, -31.264]}>
                 <mesh
                   castShadow
                   receiveShadow
-                  geometry={nodes.Plane008_window_0.geometry}
-                  material={materials.window}
+                  geometry={nodes.Object_24.geometry}
+                  material={materials.Glanzend_staalc}
+                />
+                <mesh
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Object_25.geometry}
+                  material={materials.Glanzend_staalc}
+                />
+                <mesh
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Object_26.geometry}
+                  material={materials.Glanzend_staalc}
+                />
+                <mesh
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Object_27.geometry}
+                  material={materials.Glanzend_staalc}
                 />
               </group>
-              <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+            </group>
+            <group position={[-2.472, 0.127, 31.264]}>
+              <group position={[2.472, -0.127, -31.264]}>
                 <mesh
                   castShadow
                   receiveShadow
-                  geometry={nodes.Plane009_black_parts_0.geometry}
-                  material={materials.black_parts}
+                  geometry={nodes.Object_30.geometry}
+                  material={materials.Mat_Zwart_Poeder}
                 />
               </group>
-              <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+            </group>
+            <group position={[-2.472, 0.662, 31.264]}>
+              <group position={[2.472, -0.662, -31.264]}>
                 <mesh
                   castShadow
                   receiveShadow
-                  geometry={nodes.Plane007_black_parts_0.geometry}
-                  material={materials.black_parts}
+                  geometry={nodes.Object_33.geometry}
+                  material={materials.Mat_Zwart_Poeder}
                 />
               </group>
-              <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+            </group>
+            <group position={[-2.472, 0.662, 31.264]}>
+              <group position={[2.472, -0.662, -31.264]}>
                 <mesh
                   castShadow
                   receiveShadow
-                  geometry={nodes.trunk_car_body_0.geometry}
-                  material={materials.car_body}
+                  geometry={nodes.Object_36.geometry}
+                  material={materials.Mat_Zwart_Poeder}
                 />
               </group>
-              <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+            </group>
+            <group position={[-2.472, 0.662, 31.264]}>
+              <group position={[2.472, -0.662, -31.264]}>
                 <mesh
                   castShadow
                   receiveShadow
-                  geometry={nodes.black_parts_black_parts_0.geometry}
-                  material={materials.black_parts}
+                  geometry={nodes.Object_39.geometry}
+                  material={materials.Mat_Zwart_Poeder}
                 />
               </group>
-              <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+            </group>
+            <group position={[-2.472, 0.662, 31.264]}>
+              <group position={[2.472, -0.662, -31.264]}>
                 <mesh
                   castShadow
                   receiveShadow
-                  geometry={nodes.rear_fenders_carbon_fiber_0.geometry}
-                  material={materials.carbon_fiber}
+                  geometry={nodes.Object_42.geometry}
+                  material={materials.Glanzend_staalc}
+                />
+                <mesh
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Object_43.geometry}
+                  material={materials.Glanzend_staalc}
                 />
               </group>
-              <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+            </group>
+            <group position={[-2.472, 0.662, 31.264]}>
+              <group position={[2.472, -0.662, -31.264]}>
                 <mesh
                   castShadow
                   receiveShadow
-                  geometry={nodes.headlight_glass_headlight_glass_0.geometry}
-                  material={materials.headlight_glass}
+                  geometry={nodes.Object_46.geometry}
+                  material={materials.KL003_Metallic_o}
                 />
               </group>
-              <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+            </group>
+            <group position={[-2.472, 0.662, 31.264]}>
+              <group position={[2.472, -0.662, -31.264]}>
                 <mesh
                   castShadow
                   receiveShadow
-                  geometry={nodes.Plane026_chrome_0.geometry}
-                  material={materials.chrome}
+                  geometry={nodes.Object_49.geometry}
+                  material={materials.KL003_Metallic_o}
                 />
               </group>
-              <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+            </group>
+            <group position={[-2.472, 0.662, 31.264]}>
+              <group position={[2.472, -0.662, -31.264]}>
                 <mesh
                   castShadow
                   receiveShadow
-                  geometry={nodes.rear_bumper_carbon_fiber_0.geometry}
-                  material={materials.carbon_fiber}
+                  geometry={nodes.Object_52.geometry}
+                  material={materials.KL003_Metallic_o}
                 />
               </group>
-              <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+            </group>
+            <group position={[-2.472, 0.662, 31.264]}>
+              <group position={[2.472, -0.662, -31.264]}>
                 <mesh
                   castShadow
                   receiveShadow
-                  geometry={nodes.exhaust_chrome_0.geometry}
-                  material={materials.chrome}
+                  geometry={nodes.Object_55.geometry}
+                  material={materials.KL003_Metallic_o}
+                />
+                <mesh
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Object_56.geometry}
+                  material={materials.KL003_Metallic_o}
+                />
+                <mesh
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Object_57.geometry}
+                  material={materials.KL003_Metallic_o}
                 />
               </group>
-              <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+            </group>
+            <group position={[-2.472, 0.662, 31.264]}>
+              <group position={[2.472, -0.662, -31.264]}>
                 <mesh
                   castShadow
                   receiveShadow
-                  geometry={nodes.Plane005_black_parts_0.geometry}
-                  material={materials.black_parts}
+                  geometry={nodes.Object_60.geometry}
+                  material={materials.Mat_Zwart_Poeder}
+                />
+                <mesh
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Object_61.geometry}
+                  material={materials.Mat_Zwart_Poeder}
                 />
               </group>
-              <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+            </group>
+            <group position={[-2.811, 0.665, 32.197]}>
+              <group position={[2.811, -0.665, -32.197]}>
                 <mesh
                   castShadow
                   receiveShadow
-                  geometry={nodes.side_skirts_carbon_fiber_0.geometry}
-                  material={materials.carbon_fiber}
+                  geometry={nodes.Object_64.geometry}
+                  material={materials.Mat_Zwart_Poeder}
                 />
               </group>
-              <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+            </group>
+            <group position={[-2.472, 0.662, 31.264]}>
+              <group position={[2.472, -0.662, -31.264]}>
                 <mesh
                   castShadow
                   receiveShadow
-                  geometry={nodes.Plane011_window_0.geometry}
-                  material={materials.window}
+                  geometry={nodes.Object_67.geometry}
+                  material={materials.Mat_Zwart_Poeder}
                 />
               </group>
-              <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+            </group>
+            <group position={[-2.472, 0.662, 31.264]}>
+              <group position={[2.472, -0.662, -31.264]}>
                 <mesh
                   castShadow
                   receiveShadow
-                  geometry={nodes.Plane014_black_parts_0.geometry}
-                  material={materials.black_parts}
+                  geometry={nodes.Object_70.geometry}
+                  material={materials.Glanzend_staalc}
+                />
+                <mesh
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Object_71.geometry}
+                  material={materials.Glanzend_staalc}
+                />
+                <mesh
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Object_72.geometry}
+                  material={materials.Glanzend_staalc}
                 />
               </group>
-              <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+            </group>
+            <group position={[-2.472, 0.662, 31.264]}>
+              <group position={[2.472, -0.662, -31.264]}>
                 <mesh
                   castShadow
                   receiveShadow
-                  geometry={nodes.Plane017_window_0.geometry}
-                  material={materials.window}
+                  geometry={nodes.Object_75.geometry}
+                  material={materials.Mat_Zwart_Poeder}
                 />
               </group>
-              <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+            </group>
+            <group position={[-2.472, 0.662, 31.264]}>
+              <group position={[2.472, -0.662, -31.264]}>
                 <mesh
                   castShadow
                   receiveShadow
-                  geometry={nodes.Plane033_black_parts_0.geometry}
-                  material={materials.black_parts}
+                  geometry={nodes.Object_78.geometry}
+                  material={materials.Mat_Zwart_Poeder}
                 />
               </group>
-              <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+            </group>
+            <group position={[-2.47, 0.665, 31.264]}>
+              <group position={[2.47, -0.665, -31.264]}>
                 <mesh
                   castShadow
                   receiveShadow
-                  geometry={nodes.Plane034_black_parts_0.geometry}
-                  material={materials.black_parts}
+                  geometry={nodes.Object_81.geometry}
+                  material={materials.Mat_Zwart_Rubber}
                 />
               </group>
-              <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+            </group>
+            <group position={[-2.47, 0.665, 31.264]}>
+              <group position={[2.47, -0.665, -31.264]}>
                 <mesh
                   castShadow
                   receiveShadow
-                  geometry={nodes.Plane035_window_0.geometry}
-                  material={materials.window}
+                  geometry={nodes.Object_84.geometry}
+                  material={materials.Mat_Zwart_Rubber}
                 />
               </group>
-              <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+            </group>
+            <group position={[-2.47, 0.665, 31.264]}>
+              <group position={[2.47, -0.665, -31.264]}>
                 <mesh
                   castShadow
                   receiveShadow
-                  geometry={nodes.Plane036_black_parts_0.geometry}
-                  material={materials.black_parts}
+                  geometry={nodes.Object_87.geometry}
+                  material={materials.Mat_Zwart_Poeder}
                 />
               </group>
-              <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+            </group>
+            <group position={[-2.47, 0.665, 31.264]}>
+              <group position={[2.47, -0.665, -31.264]}>
                 <mesh
                   castShadow
                   receiveShadow
-                  geometry={nodes.mirrors_chrome_0.geometry}
-                  material={materials.chrome}
+                  geometry={nodes.Object_90.geometry}
+                  material={materials.Mat_Zwart_Poeder}
                 />
               </group>
-              <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+            </group>
+            <group position={[-2.47, 0.665, 31.264]}>
+              <group position={[2.47, -0.665, -31.264]}>
                 <mesh
                   castShadow
                   receiveShadow
-                  geometry={nodes.front_right_wheel_wheel_0.geometry}
-                  material={materials.wheel}
+                  geometry={nodes.Object_93.geometry}
+                  material={materials.Mat_Zwart_Poeder}
+                />
+                <mesh
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Object_94.geometry}
+                  material={materials.Mat_Zwart_Poeder}
+                />
+                <mesh
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Object_95.geometry}
+                  material={materials.Mat_Zwart_Poeder}
                 />
               </group>
-              <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+            </group>
+            <group position={[-2.475, 0.664, 31.267]}>
+              <group position={[2.475, -0.664, -31.267]}>
                 <mesh
                   castShadow
                   receiveShadow
-                  geometry={nodes.Plane038_black_parts_0.geometry}
-                  material={materials.black_parts}
+                  geometry={nodes.Object_98.geometry}
+                  material={materials.Glanzend_staalc}
                 />
               </group>
-              <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+            </group>
+            <group position={[-2.475, 0.664, 31.267]}>
+              <group position={[2.475, -0.664, -31.267]}>
                 <mesh
                   castShadow
                   receiveShadow
-                  geometry={nodes.intercooler_intercooler_0.geometry}
-                  material={materials.intercooler}
+                  geometry={nodes.Object_101.geometry}
+                  material={materials.Glanzend_staalc}
                 />
               </group>
-              <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+            </group>
+            <group position={[-2.475, 0.664, 31.267]}>
+              <group position={[2.475, -0.664, -31.267]}>
                 <mesh
                   castShadow
                   receiveShadow
-                  geometry={nodes.black_floats_Pure_black_0.geometry}
-                  material={materials.Pure_black}
-                />
-                <mesh
-                  castShadow
-                  receiveShadow
-                  geometry={nodes.black_floats_chrome_0.geometry}
-                  material={materials.chrome}
+                  geometry={nodes.Object_104.geometry}
+                  material={materials.Glanzend_staalc}
                 />
               </group>
-              <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+            </group>
+            <group position={[-2.475, 0.664, 31.267]}>
+              <group position={[2.475, -0.664, -31.267]}>
                 <mesh
                   castShadow
                   receiveShadow
-                  geometry={nodes.rear_wheels_wheel_0.geometry}
-                  material={materials.wheel}
+                  geometry={nodes.Object_107.geometry}
+                  material={materials.Glanzend_staalc}
                 />
               </group>
-              <group ref={group} rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+            </group>
+            <group position={[-2.47, 0.671, 31.264]}>
+              <group position={[2.47, -0.671, -31.264]}>
                 <mesh
                   castShadow
                   receiveShadow
-                  geometry={nodes.front_left_wheel_wheel_0.geometry}
-                  material={materials.wheel}
+                  geometry={nodes.Object_110.geometry}
+                  material={materials.logo_mach_SR01}
+                />
+              </group>
+            </group>
+            <group position={[-2.47, 0.671, 31.264]}>
+              <group position={[2.47, -0.671, -31.264]}>
+                <mesh
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Object_113.geometry}
+                  material={materials.logo_mach_SR01}
+                />
+              </group>
+            </group>
+            <group position={[-2.47, 0.671, 31.264]}>
+              <group position={[2.47, -0.671, -31.264]}>
+                <mesh
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Object_116.geometry}
+                  material={materials.Mat_Zwart_Poeder}
+                />
+              </group>
+            </group>
+            <group position={[-2.47, 0.671, 31.264]}>
+              <group position={[2.47, -0.671, -31.264]}>
+                <mesh
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Object_119.geometry}
+                  material={materials.Mat_Zwart_Poeder}
+                />
+                <mesh
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Object_120.geometry}
+                  material={materials.Mat_Zwart_Poeder}
+                />
+              </group>
+            </group>
+            <group position={[-2.47, 0.671, 31.264]}>
+              <group position={[2.47, -0.671, -31.264]}>
+                <mesh
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Object_123.geometry}
+                  material={materials.Glanzend_staalc}
+                />
+                <mesh
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Object_124.geometry}
+                  material={materials.Glanzend_staalc}
+                />
+              </group>
+            </group>
+            <group position={[-2.47, 0.671, 31.264]}>
+              <group position={[2.47, -0.671, -31.264]}>
+                <mesh
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Object_127.geometry}
+                  material={materials.Mat_Zwart_Poeder}
+                />
+                <mesh
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Object_128.geometry}
+                  material={materials.Mat_Zwart_Poeder}
+                />
+              </group>
+            </group>
+            <group
+              position={[-48.771, 0.64, 36.065]}
+              rotation={[Math.PI / 2, 0, 0]}
+            >
+              <group
+                position={[48.771, -36.065, 0.64]}
+                rotation={[-Math.PI / 2, 0, 0]}
+              >
+                <mesh
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Object_131.geometry}
+                  material={materials.Mat_Zwart_Rubber}
+                />
+              </group>
+            </group>
+            <group
+              position={[62.596, 0.128, 36.065]}
+              rotation={[Math.PI / 2, 0, 0]}
+            >
+              <group
+                position={[-62.596, -36.065, 0.128]}
+                rotation={[-Math.PI / 2, 0, 0]}
+              >
+                <mesh
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Object_134.geometry}
+                  material={materials.Mat_Zwart_Rubber}
+                />
+              </group>
+            </group>
+            <group position={[-2.472, 0.662, 31.264]}>
+              <group position={[2.472, -0.662, -31.264]}>
+                <mesh
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Object_137.geometry}
+                  material={materials.Mat_Zwart_Poeder}
+                />
+              </group>
+            </group>
+            <group position={[-2.472, 0.662, 31.264]}>
+              <group position={[2.472, -0.662, -31.264]}>
+                <mesh
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Object_140.geometry}
+                  material={materials.Mat_Zwart_Poeder}
+                />
+                <mesh
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Object_141.geometry}
+                  material={materials.Mat_Zwart_Poeder}
                 />
               </group>
             </group>
@@ -285,4 +557,4 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
   );
 }
 
-useGLTF.preload("models/cartoon_car.glb");
+useGLTF.preload("models/bicycle.glb");
