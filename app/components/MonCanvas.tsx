@@ -1,38 +1,42 @@
 'use client'
 import { Canvas} from '@react-three/fiber'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import Experience from './Experience'
-import { Scroll, ScrollControls } from '@react-three/drei'
-import Interface from './sections/Interface'
-import ScrollManager from './ScrollManager'
-import Menu from './Menu'
+import  gsap  from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useSnapshot } from 'valtio'
+import state from '@/store'
+gsap.registerPlugin(ScrollTrigger)
 
 
 function MonCanvas() {
-  const [section, setSection] = useState(0)
-  const [menuOpened, setMenuOpened] = useState(false)
+  const [section, setSection] = useState<any>([0,0,0])
+  const [scene, setScene] = useState<any>([0,0,0])
+  // const [menuOpened, setMenuOpened] = useState(false)
+  const snap = useSnapshot(state)
+  useLayoutEffect(() => {
+    if (snap.intro) {
+      setSection([-10.782102351962124, 49.98315421076273, 313.01263861123016])
+      setScene([0, -60.00, 0])
+    } else {
+      setSection([0,1.33,-260.00])
+      setScene([0,0,0])
+    }
+  }, [setSection, snap])
+  console.log("section:", section);
+  console.log("scene:", scene);
 
   
   return (
     <>
-        <Canvas shadows
-          camera={{ position: [0.6404647931201797,30.60143306317257,-236.57482425548693] ,fov:42}}
-         scene={{position:[-20.0,-50.0,0]}}
+      <Canvas
+        shadows
+        camera={{ position: section, fov: 25 }}
+        scene={{position:scene}}
       >
-        <color attach="background" args={["#FFF6DC"]}/>
-          <ScrollControls pages={4} damping={0.1}>
-            {/* <ScrollManager section={section} onSectionChange={setSection} /> */}
-              <Experience />
-              <Scroll html>
-              <Interface/>
-              </Scroll>
-            </ScrollControls>
+         <Experience/>
       </Canvas>
-      <Menu
-        onSectionChange={setSection}
-        menuOpened={menuOpened}
-        setMenuOpened={setMenuOpened}
-      />
+     
     </>
   )
 }

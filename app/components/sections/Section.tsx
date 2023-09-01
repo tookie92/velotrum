@@ -22,7 +22,7 @@ function Section({children} : SectionProps) {
       }}
           className='
             w-screen h-screen p-8 max-w-screen-2xl mx-auto
-            flex flex-col items-start justify-center 
+            flex flex-col items-start 
           '
       >
           {children}

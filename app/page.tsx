@@ -1,23 +1,27 @@
 'use client'
-import Header from "@/components/section/Header";
-import MonCanvas from "./components/MonCanvas";
-import Hero from "@/components/section/Hero";
-import AboutUs from "@/components/section/AboutUs";
-import ContactUs from "@/components/section/ContactUs";
-import { useLayoutEffect } from "react";
 
+import { MotionConfig } from "framer-motion";
+import Accueil from "./mespages/Accueil";
+import { useSnapshot } from "valtio";
+import state from "@/store";
 
 
 export default function Home() {
- 
+  const snap = useSnapshot(state)
   return (
-   
-      <>
-      <div className='h-screen fixed w-full top-0 '>
-        <MonCanvas/>
-      </div>
-     
-     
-    </>
+    <MotionConfig
+    transition={{
+      type: "spring",
+      mass: 5,
+      stiffness: 500,
+      damping: 50,
+      restDelta:0.0001
+    }}
+  >
+
+    <main className={` snap-y overflow-x-hidden transition-all  ${snap.dark === false ? "bg-white": "dark bg-black"   }`}>
+        <Accueil />
+    </main>
+    </MotionConfig>
   )
 }
