@@ -50,6 +50,7 @@ const MainScene: React.FC = () => {
           <Model />
           </motion.group>
       </Stage>
+      
       <OrbitControls autoRotate autoRotateSpeed={0.05} enableZoom={false} makeDefault minPolarAngle={Math.PI / 2} maxPolarAngle={Math.PI / 2} />
       <Environment background preset={snap.dark ? 'dawn' : 'city'} blur={0.8} />
     </>

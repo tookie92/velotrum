@@ -8,7 +8,7 @@ function BuyNow({ dark }: { dark: boolean }) {
   const snap = useSnapshot(state)
   const route = useRouter()
   return (
-    <section className=' snap-start third-section h-screen relative p-24'>
+    <section data-scroll className=' snap-start third-section h-screen relative p-24'>
       <div className='flex w-full h-full items-center flex-row justify-end'>
         
         <div className='w-[50%] relative z-40 items-center flex flex-col gap-8'>

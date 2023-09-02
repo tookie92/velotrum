@@ -7,6 +7,7 @@ import { useFrame, useThree } from "@react-three/fiber";
 import { GLTFResult } from "./typing";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import {easing} from "maath"
 import MyLeva from "./MyLeva";
 import { useSnapshot } from "valtio";
 import state from "@/store";
@@ -23,6 +24,14 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
   console.log("Scene Rotation",scene.rotation)
   const tl = gsap.timeline()
  
+
+  useFrame((state, delta) => {
+    if (!snap.intro) { 
+      easing.dampC(materials.KL003_Metallic_o.color,snap.color,0.25, delta)
+    } else {
+      return;
+    }
+  })
 
   useLayoutEffect(() => {
     if (snap.intro) {
@@ -306,6 +315,7 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
             receiveShadow
             geometry={nodes.Object_46.geometry}
             material={materials.KL003_Metallic_o}
+            material-roughness={1}
             position={[2.472, -0.662, -31.264]}
           />
         </group>
@@ -315,6 +325,7 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
             receiveShadow
             geometry={nodes.Object_49.geometry}
             material={materials.KL003_Metallic_o}
+            material-roughness={1}
             position={[2.472, -0.662, -31.264]}
           />
         </group>
@@ -324,6 +335,7 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
             receiveShadow
             geometry={nodes.Object_52.geometry}
             material={materials.KL003_Metallic_o}
+            material-roughness={1}
             position={[2.472, -0.662, -31.264]}
           />
         </group>
@@ -334,18 +346,21 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
               receiveShadow
               geometry={nodes.Object_55.geometry}
               material={materials.KL003_Metallic_o}
+              material-roughness={1}
             />
             <mesh
               castShadow
               receiveShadow
               geometry={nodes.Object_56.geometry}
               material={materials.KL003_Metallic_o}
+              material-roughness={1}
             />
             <mesh
               castShadow
               receiveShadow
               geometry={nodes.Object_57.geometry}
               material={materials.KL003_Metallic_o}
+              material-roughness={1}
             />
           </group>
         </group>

@@ -11,13 +11,17 @@ import { useEffect } from 'react'
 function Accueil() {
   useEffect(() => {
     state.intro = true
+    async () => {
+      const LocomotiveScroll = (await import('locomotive-scroll')).default;
+      const locomotiveScroll = new LocomotiveScroll()
+    }
   })
     const snap  = useSnapshot(state)
     return (
         <>
                   <div
                     className=" h-screen z-20 w-full fixed top-0 hidden lg:block">
-                    <MonCanvas/>
+                    {/* <MonCanvas/> */}
                   </div>
                   <Hero dark={snap.dark} />
                   <AboutUs dark={snap.dark} />

@@ -3,7 +3,7 @@ import {motion} from "framer-motion"
 
 function Hero({dark}:{dark:boolean}) {
   return (
-    <section className='snap-start relative flex w-full text-white h-screen'>
+    <section data-scroll className='snap-start relative flex w-full text-white h-screen'>
       <div className='absolute bottom-[17%] z-30  left-[7%]'>
         <motion.div
           initial={{

@@ -27,7 +27,9 @@
     "gsap": "^3.12.2",
     "lamina": "^1.1.23",
     "leva": "^0.9.35",
+    "locomotive-scroll": "^4.1.4",
     "lucide-react": "^0.271.0",
+    "maath": "^0.7.0",
     "next": "13.4.19",
     "postcss": "8.4.28",
     "react": "18.2.0",
@@ -41,5 +43,8 @@
     "three-stdlib": "^2.24.2",
     "typescript": "5.1.6",
     "valtio": "^1.11.2"
+  },
+  "devDependencies": {
+    "@types/locomotive-scroll": "^4.1.1"
   }
 }

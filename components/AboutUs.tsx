@@ -3,7 +3,7 @@ import {motion} from "framer-motion"
 
 function AboutUs({dark}:{dark:boolean}) {
   return (
-    <section className='  snap-start relative second-section h-screen p-24'>
+    <section data-scroll className='snap-start relative second-section h-screen p-24'>
       <div
         className='flex w-full h-full items-center'
       >
