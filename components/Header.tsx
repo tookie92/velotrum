@@ -6,7 +6,8 @@ import {BsMoon, BsSun} from "react-icons/bs"
 import state from '@/store'
 import { useRouter } from 'next/navigation'
 import Menu from '@/app/customise/Menu'
-import Curve from '@/app/customise/Curve'
+
+import { AnimatePresence, motion } from 'framer-motion'
 
 function Header() {
   const snap = useSnapshot(state)
@@ -24,7 +25,8 @@ function Header() {
               <Switch onClick={() => (state.dark = !state.dark)} />
             <BsMoon className={`${snap.dark? "text-sky-300":" text-sky-900"}`}/>
         </div>
-        <Menu />
+       
+          <Menu />
         {/* <Curve/> */}
       </div>
     </div>
