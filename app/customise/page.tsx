@@ -31,7 +31,7 @@ function Customise() {
 
         
             <Customization />
-            {/* <MonCanvas/> */}
+            <MonCanvas/>
         </MotionConfig>
     </main>
   )

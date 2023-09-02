@@ -21,11 +21,11 @@ function Accueil() {
         <>
                   <div
                     className=" h-screen z-20 w-full fixed top-0 hidden lg:block">
-                    {/* <MonCanvas/> */}
+                    <MonCanvas/>
                   </div>
-                  <Hero dark={snap.dark} />
-                  <AboutUs dark={snap.dark} />
-                  <BuyNow  dark={ snap.dark} />
+                  <Hero data-scroll dark={snap.dark} />
+                  <AboutUs data-scroll dark={snap.dark} />
+                  <BuyNow data-scroll  dark={ snap.dark} />
         </>
         
       )
