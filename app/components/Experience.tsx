@@ -44,7 +44,7 @@ const MainScene: React.FC = () => {
                   }}
                   transition={{
                     duration: 2,
-                    delay:3
+                    delay:2.5
                   }}
                 >
           <Model />

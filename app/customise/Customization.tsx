@@ -70,7 +70,7 @@ function Customization() {
       <div ref={background}
           className='fixed bg-primary z-40 h-screen w-screen'
       />
-      <h1 ref={title} className='absolute top-[50%] left-[50%] z-50 text-stone-300 font-bold text-lg opacity-0'>
+      <h1 ref={title} className='absolute top-[50%] left-[50%] z-50 text-stone-300 text-2xl font-bold uppercase opacity-0'>
           Velotrum
       </h1>
     </>
